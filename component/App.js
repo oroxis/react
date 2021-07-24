@@ -6,10 +6,15 @@ import { useState } from 'react';
 
 
 function App() {
-  const [counts, setCount] = useState(4);
+  const [counts, setCount] = useState(0);
+  const [isLog, setIsLog] = useState(true);
   const handleClick = () => {
     setCount(counts +1)
   };
+  const handleLogClick = () => {
+    setIsLog(!isLog);
+
+  }
   return (
     <div className="App">
       <header className="App-header">
@@ -18,6 +23,8 @@ function App() {
      
       <div>
           <Product/>
+          {isLog ? <p>You are logged in</p>:<p> You are logged Out</p>}
+          <button onClick={handleLogClick}>{isLog ? <span>Logout</span> : <span>Log in</span>}</button>
           <Products counts={counts} handleClick={handleClick}/>
       </div>
       
