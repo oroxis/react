@@ -1,46 +1,20 @@
+import logo from './logo.svg';
 import './App.css';
-import {
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
-import Contact from './class/Contact';
-import Shop from './class/Shop';
-import Product from './class/Product';
-import { useState } from 'react';
+import Forms from './components/Forms';
+
 
 function App() {
-  const [state, setState] = useState(0)
   return (
     <div className="App">
-      <nav> 
-        <Link to="/contact">Contact Page</Link>  <br />
-        <Link to="/product">Product</Link> <br />
-        <Link to="/">Shop</Link> <br />  
-      </nav> <br />
-      <button onClick={() => setState(state + 1)}>Click</button>
-      {state}
-      <h1>Hello World</h1>
-      <Switch>
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+      </header>
+      <h1>Forms in React</h1>
 
-      <Route path="/contact">
-          <Contact/>
-      </Route>
+      <Forms/>
 
-      <Route path="/product">
-          <Product/>
-      </Route>
-
-      <Route path="/">
-          <Shop/>
-      </Route>
-
-      </Switch>
-
-
-
-
-
+  
+    
     </div>
   );
 }
